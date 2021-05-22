@@ -1,5 +1,6 @@
-//fetch("https://calm-depths-40785.herokuapp.com/products")
-fetch("http://localhost:3000/products")
+//fetch("http://localhost:3000/products")
+
+fetch("https://calm-depths-40785.herokuapp.com/products")
   .then(function (response) {
     return response.json();
   })
