@@ -28,10 +28,11 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Buscar</button>
-                </form>
+                <div class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"
+                        id='search-text'>
+                    <button class="btn btn-outline-success" onclick="javascript:search()">Buscar</button>
+                </div>
                 <nav class="navbar">
                     <div class="container-fluid">
                         <button type="button" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg"
@@ -52,21 +53,9 @@
 
 
         <div class="container container-fluid">
-            <div class="row">
-                <!--   <div class="card col">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Nombre del producto</h5>
-                        <p class="card-text">Precio</p>
-                        <a href="#" class="btn btn-primary">Añadir al carro</a>
-                    </div>
-                </div> -->
 
-
-
-
-            </div>
             <div id="card-container" class='cards-container'> </div>
+
 
 
         </div>

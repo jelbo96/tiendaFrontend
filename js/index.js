@@ -1,5 +1,21 @@
-//fetch("http://localhost:3000/products")
+function search() {
+  let textSearch = document.getElementById("search-text").value;
 
+  //fetch(`http://localhost:3000/products?text=${textSearch}`)
+  fetch(`https://calm-depths-40785.herokuapp.com/products?text=${textSearch}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("enviando a appenddata", data.rows);
+      appendData(data.rows);
+    })
+    .catch(function (err) {
+      console.log("error: " + err);
+    });
+}
+
+//fetch("http://localhost:3000/products")
 fetch("https://calm-depths-40785.herokuapp.com/products")
   .then(function (response) {
     return response.json();
@@ -14,7 +30,7 @@ fetch("https://calm-depths-40785.herokuapp.com/products")
 let cardContainer;
 
 let createProductCard = (product) => {
-  console.log(product);
+  console.log("creando producto", product);
   let card = document.createElement("div");
   card.className = "card shadow cursor-pointer";
 
@@ -23,7 +39,12 @@ let createProductCard = (product) => {
   cardBody.className = "card-body";
 
   let img = document.createElement("img");
-  img.src = product.url_image;
+
+  if (product.url_image) {
+    img.src = product.url_image;
+  } else {
+    img.src = "imgs/producto-sin-imagen.png";
+  }
   img.className = "card-product-img";
 
   let title = document.createElement("h5");
@@ -44,13 +65,22 @@ let createProductCard = (product) => {
 let appendData = (data) => {
   console.log("data", data);
   if (cardContainer) {
-    document.getElementById("card-container").replaceWith(cardContainer);
-    return;
+    //document.getElementById("card-container").replaceWith(cardContainer);
+    document.getElementById("card-container").innerHTML = "";
   }
 
   cardContainer = document.getElementById("card-container");
 
-  data.forEach((product) => {
-    createProductCard(product);
-  });
+  console.log("dataForEach", data);
+
+  if (data.length == 0) {
+    let title = document.createElement("h5");
+    title.innerText = "No se encontraron productos";
+    cardContainer.appendChild(title);
+  } else {
+    data.forEach((product) => {
+      console.log("producto", product);
+      createProductCard(product);
+    });
+  }
 };
