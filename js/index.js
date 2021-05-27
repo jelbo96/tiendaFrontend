@@ -15,10 +15,25 @@ function search() {
 }
 
 /* Obtener datos con filtro */
-function withFilter() {
+function filterCategory(idCategory) {
   console.log(
-    "en esta funcion se obtendran los datos segun filtros de categoria"
+    "en esta funcion se obtendran los datos segun filtros de categoria",
+    idCategory
   );
+
+  fetch(
+    `https://calm-depths-40785.herokuapp.com/products?category=${idCategory}`
+  ) //fetch(`http://localhost:3000/products?category=${idCategory}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("enviando a appenddata", data.rows);
+      appendData(data.rows);
+    })
+    .catch(function (err) {
+      console.log("error: " + err);
+    });
 }
 
 /* Obtener todos los datos */
