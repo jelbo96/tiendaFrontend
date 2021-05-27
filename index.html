@@ -16,7 +16,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
 
-    <!-- Poner una barra superior con un titulo y un buscador -->
+    <!-- Barra de titulo -->
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Prueba tienda bsale</a>
@@ -28,11 +28,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 </ul>
+                <!-- Buscador -->
                 <div class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"
                         id='search-text'>
                     <button class="btn btn-outline-success" onclick="javascript:search()">Buscar</button>
                 </div>
+                <!-- Carrito de compra -->
                 <nav class="navbar">
                     <div class="container-fluid">
                         <button type="button" class="btn btn-primary"> <svg xmlns="http://www.w3.org/2000/svg"
@@ -48,16 +50,11 @@
     </nav>
 
     <div class='body'>
+        <!-- Filtros -->
 
-        <!-- Renderear los productos de manera simple, luego en tarjetas -->
-
-
+        <!-- Contenedor productos -->
         <div class="container container-fluid">
-
             <div id="card-container" class='cards-container'> </div>
-
-
-
         </div>
 
     </div>
